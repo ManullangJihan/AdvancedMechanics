@@ -1,4 +1,6 @@
-# https://chat.openai.com/share/3d2e0c3f-b9ac-42e3-a798-e488095e85d0
+# Activate environment and install dependencies defined in Project.toml
+include("../env/activate_env.jl")
+
 
 using DifferentialEquations
 using Plots

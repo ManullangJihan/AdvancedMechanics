@@ -1,5 +1,8 @@
+# Activate environment and install dependencies defined in Project.toml
+include("../env/activate_env.jl")
+
+
 using LinearAlgebra
-using ControlSystems
 using Plots
 using Plots: plot, plot!
 using DifferentialEquations

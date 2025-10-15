@@ -1,3 +1,6 @@
+# Activate environment and install dependencies defined in Project.toml
+include("../env/activate_env.jl")
+
 using Symbolics
 using DifferentialEquations
 using Plots

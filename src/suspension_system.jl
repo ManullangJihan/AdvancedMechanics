@@ -1,4 +1,6 @@
-# https://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling
+# Activate environment and install dependencies defined in Project.toml
+include("../env/activate_env.jl")
+
 
 using DifferentialEquations
 using Plots
