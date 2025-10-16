@@ -2,7 +2,7 @@
 
 julia_version = "1.10.10"
 manifest_format = "2.0"
-project_hash = "5916f7d036a2e8e4825db7f494a93da99ce458e2"
+project_hash = "087269b78845008b136b85d99293ae9704860d4d"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "27cecae79e5cc9935255f90c53bb831cc3c870d7"
@@ -355,6 +355,29 @@ version = "1.6.0"
 git-tree-sha1 = "439e35b0b36e2e5881738abc8857bd92ad6ff9a8"
 uuid = "d38c429a-6771-53c6-b99e-75d170b6e991"
 version = "0.6.3"
+
+[[deps.ControlSystems]]
+deps = ["ControlSystemsBase", "DelayDiffEq", "DiffEqBase", "DiffEqCallbacks", "ForwardDiff", "LinearAlgebra", "OrdinaryDiffEq", "Printf", "Random", "RecipesBase", "Reexport", "SparseArrays", "StaticArrays"]
+git-tree-sha1 = "7726725686bd5218b195bc1f8abdd83df2784e23"
+uuid = "a6e380b2-a6ca-5380-bf3e-84a91bcd477e"
+version = "1.15.1"
+
+[[deps.ControlSystemsBase]]
+deps = ["ForwardDiff", "Hungarian", "LinearAlgebra", "MacroTools", "MatrixEquations", "MatrixPencils", "Polynomials", "PrecompileTools", "Printf", "Random", "RecipesBase", "StaticArraysCore", "UUIDs"]
+git-tree-sha1 = "aa226e1449c8ca7c8c501e338e033a406e0427a0"
+uuid = "aaaaaaaa-a6ca-5380-bf3e-84a91bcd477e"
+version = "1.20.1"
+
+    [deps.ControlSystemsBase.extensions]
+    ControlSystemsBaseDSPExt = ["DSP"]
+    ControlSystemsBaseImplicitDifferentiationExt = ["ImplicitDifferentiation", "ComponentArrays"]
+    ControlSystemsBaseMakieExt = ["Makie"]
+
+    [deps.ControlSystemsBase.weakdeps]
+    ComponentArrays = "b0b7db55-cfe3-40fc-9ded-d10e2dbeff66"
+    DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
+    ImplicitDifferentiation = "57b37032-215b-411a-8a7c-41a003a55207"
+    Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 
 [[deps.CpuId]]
 deps = ["Markdown"]
@@ -841,6 +864,12 @@ git-tree-sha1 = "f923f9a774fcf3f5cb761bfa43aeadd689714813"
 uuid = "2e76f6c2-a576-52d4-95c1-20adfe4de566"
 version = "8.5.1+0"
 
+[[deps.Hungarian]]
+deps = ["LinearAlgebra", "SparseArrays"]
+git-tree-sha1 = "4f84db415ccb0ea750b10738bfecdd55388fd1b6"
+uuid = "e91730f6-4275-51fb-a7a0-7064cfbd3b39"
+version = "0.7.0"
+
 [[deps.HypergeometricFunctions]]
 deps = ["LinearAlgebra", "OpenLibm_jll", "SpecialFunctions"]
 git-tree-sha1 = "68c173f4f449de5b438ee67ed0c9c748dc31a2ec"
@@ -1107,6 +1136,18 @@ version = "7.4.0"
 deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
+[[deps.LinearMaps]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "7f6be2e4cdaaf558623d93113d6ddade7b916209"
+uuid = "7a12625a-238d-50fd-b39a-03d52299707e"
+version = "3.11.4"
+weakdeps = ["ChainRulesCore", "SparseArrays", "Statistics"]
+
+    [deps.LinearMaps.extensions]
+    LinearMapsChainRulesCoreExt = "ChainRulesCore"
+    LinearMapsSparseArraysExt = "SparseArrays"
+    LinearMapsStatisticsExt = "Statistics"
+
 [[deps.LinearSolve]]
 deps = ["ArrayInterface", "ChainRulesCore", "ConcreteStructs", "DocStringExtensions", "EnumX", "GPUArraysCore", "InteractiveUtils", "Krylov", "LazyArrays", "Libdl", "LinearAlgebra", "MKL_jll", "Markdown", "OpenBLAS_jll", "PrecompileTools", "Preferences", "RecursiveArrayTools", "Reexport", "SciMLBase", "SciMLOperators", "Setfield", "StaticArraysCore", "UnPack"]
 git-tree-sha1 = "13d7e269fcdf9ce431bcd6d501eb8c35c950d9cf"
@@ -1207,6 +1248,12 @@ version = "0.1.8"
 deps = ["Base64"]
 uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
+[[deps.MatrixEquations]]
+deps = ["LinearAlgebra", "LinearMaps"]
+git-tree-sha1 = "51f3fade0b4ff2cf90b36b3312425460631abb56"
+uuid = "99c1a7ee-ab34-5fd5-8076-27c950a045f4"
+version = "2.5.6"
+
 [[deps.MatrixFactorizations]]
 deps = ["ArrayLayouts", "LinearAlgebra", "Printf", "Random"]
 git-tree-sha1 = "5d094d4d7887b1d75abccf960ae104a4428e948e"
@@ -1216,6 +1263,12 @@ weakdeps = ["BandedMatrices"]
 
     [deps.MatrixFactorizations.extensions]
     MatrixFactorizationsBandedMatricesExt = "BandedMatrices"
+
+[[deps.MatrixPencils]]
+deps = ["LinearAlgebra", "MatrixEquations", "Polynomials", "Random"]
+git-tree-sha1 = "57e7bd3a4916083851d87d0dcfad4f4397915af8"
+uuid = "48965c70-4690-11ea-1f13-43a2532b2fa8"
+version = "1.9.0"
 
 [[deps.MaybeInplace]]
 deps = ["ArrayInterface", "LinearAlgebra", "MacroTools"]
@@ -1724,6 +1777,24 @@ deps = ["BitTwiddlingConvenienceFunctions", "CPUSummary", "IfElse", "Static", "T
 git-tree-sha1 = "645bed98cd47f72f67316fd42fc47dee771aefcd"
 uuid = "1d0040c9-8b98-4ee7-8388-3f51789ca0ad"
 version = "0.2.2"
+
+[[deps.Polynomials]]
+deps = ["LinearAlgebra", "OrderedCollections", "RecipesBase", "Requires", "Setfield", "SparseArrays"]
+git-tree-sha1 = "972089912ba299fba87671b025cd0da74f5f54f7"
+uuid = "f27b6e38-b328-58d1-80ce-0feddd5e7a45"
+version = "4.1.0"
+
+    [deps.Polynomials.extensions]
+    PolynomialsChainRulesCoreExt = "ChainRulesCore"
+    PolynomialsFFTWExt = "FFTW"
+    PolynomialsMakieExt = "Makie"
+    PolynomialsMutableArithmeticsExt = "MutableArithmetics"
+
+    [deps.Polynomials.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    FFTW = "7a1cc6ca-52ef-59f5-83cd-3a7055c09341"
+    Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+    MutableArithmetics = "d8a4904e-b15c-11e9-3269-09a3773c0cb0"
 
 [[deps.PositiveFactorizations]]
 deps = ["LinearAlgebra"]
