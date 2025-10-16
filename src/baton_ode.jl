@@ -28,8 +28,6 @@ sol = solve(problem)
 t = sol.t
 arr_sol = Array(sol)
 
-# TODO: Make animation
-
 anim = @animate for j = 1:length(t)
     theta = arr_sol[5, j]
     X = arr_sol[1, j]
