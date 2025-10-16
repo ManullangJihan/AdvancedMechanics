@@ -42,7 +42,4 @@ anim = @animate for (x, y) in zip(xs, ys)
     hline!([0.0], linewidth=3.0)
 end
 
-gif(anim, "inverted_pendulum.gif")
-
-
-
+gif(anim, "simple_pendulum.gif")
